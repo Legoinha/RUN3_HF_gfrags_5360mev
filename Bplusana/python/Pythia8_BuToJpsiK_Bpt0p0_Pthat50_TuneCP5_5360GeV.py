@@ -59,7 +59,7 @@ mumugenfilter = cms.EDFilter("MCParticlePairFilter",
 
 BJpsiDaufilter = cms.EDFilter("PythiaMomDauFilter",
 							  ParticleID = cms.untracked.int32(521),
-							  MomMinPt = cms.untracked.double(0.0),#5.0
+							  MomMinPt = cms.untracked.double(5.0),#5.0
 							  MomMinEta = cms.untracked.double(-2.4),
 							  MomMaxEta = cms.untracked.double(2.4),
 							  DaughterIDs = cms.untracked.vint32(443, 321),
