@@ -85,12 +85,12 @@ generator.PythiaParameters.processParameters.extend(EvtGenExtraParticles)
 ###########
 mumugenfilter = cms.EDFilter("MCParticlePairFilter",
 							 Status = cms.untracked.vint32(1, 1),
-							 MinPt = cms.untracked.vdouble(0.0, 0.0),
+							 MinPt = cms.untracked.vdouble(0.0, 0.0),# 0.5, 0.5
 							 MinP = cms.untracked.vdouble(0., 0.),
-							 MaxEta = cms.untracked.vdouble(2.5, 2.5),
-							 MinEta = cms.untracked.vdouble(-2.5, -2.5),
-							 MinInvMass = cms.untracked.double(2.0),
-							 MaxInvMass = cms.untracked.double(4.0),
+							 MaxEta = cms.untracked.vdouble(10000.0, 10000.0),# 2.5, 2.5
+							 MinEta = cms.untracked.vdouble(-10000.0, -10000.0),# -2.5, -2.5
+							 MinInvMass = cms.untracked.double(0.0),# 2.0
+							 MaxInvMass = cms.untracked.double(100.0),# 4.0
 							 ParticleCharge = cms.untracked.int32(-1),
 							 ParticleID1 = cms.untracked.vint32(13),
 							 ParticleID2 = cms.untracked.vint32(13)
@@ -106,8 +106,8 @@ BJpsiDaufilter = cms.EDFilter("PythiaMomDauFilter",
 							  DaughterID = cms.untracked.int32(443),
 							  DescendantsIDs = cms.untracked.vint32(13, -13),
 							  NumberDescendants = cms.untracked.int32(2),
-							  MinEta = cms.untracked.double(-2.5),
-							  MaxEta = cms.untracked.double(2.5),
+							  MinEta = cms.untracked.double(-10000.0),#-2.5
+							  MaxEta = cms.untracked.double(10000.0),#2.5
 )
 
 BPhiDaufilter = cms.EDFilter("PythiaMomDauFilter",
@@ -120,8 +120,8 @@ BPhiDaufilter = cms.EDFilter("PythiaMomDauFilter",
 							 DaughterID = cms.untracked.int32(333),
 							 DescendantsIDs = cms.untracked.vint32(321, -321),
 							 NumberDescendants = cms.untracked.int32(2),
-							 MinEta = cms.untracked.double(-2.5),
-							 MaxEta = cms.untracked.double(2.5),
+							 MinEta = cms.untracked.double(-10000.0),#-2.5
+							 MaxEta = cms.untracked.double(10000.0),#2.5
 )
 
 ProductionFilterSequence = cms.Sequence(generator*mumugenfilter*BJpsiDaufilter*BPhiDaufilter)

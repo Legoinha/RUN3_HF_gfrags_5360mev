@@ -63,12 +63,12 @@ generator.PythiaParameters.processParameters.extend(EvtGenExtraParticles)
 ###########
 mumugenfilter = cms.EDFilter("MCParticlePairFilter",
 							 Status = cms.untracked.vint32(1, 1),
-							 MinPt = cms.untracked.vdouble(0.5, 0.5),
+							 MinPt = cms.untracked.vdouble(0.0, 0.0),# 0.5, 0.5
 							 MinP = cms.untracked.vdouble(0., 0.),
-							 MaxEta = cms.untracked.vdouble(2.5, 2.5),
-							 MinEta = cms.untracked.vdouble(-2.5, -2.5),
-							 MinInvMass = cms.untracked.double(2.0),
-							 MaxInvMass = cms.untracked.double(4.0),
+							 MaxEta = cms.untracked.vdouble(100000, 100000),
+							 MinEta = cms.untracked.vdouble(-100000, -100000),
+							 MinInvMass = cms.untracked.double(0.0),
+							 MaxInvMass = cms.untracked.double(100.0),
 							 ParticleCharge = cms.untracked.int32(-1),
 							 ParticleID1 = cms.untracked.vint32(13),
 							 ParticleID2 = cms.untracked.vint32(13)
@@ -76,7 +76,7 @@ mumugenfilter = cms.EDFilter("MCParticlePairFilter",
 
 Psi2SJpsiDaufilter = cms.EDFilter("PythiaMomDauFilter",
 								  ParticleID = cms.untracked.int32(100443),
-								  MomMinPt = cms.untracked.double(0.),
+								  MomMinPt = cms.untracked.double(5.),
 								  MomMinEta = cms.untracked.double(-2.4),
 								  MomMaxEta = cms.untracked.double(2.4),
 								  DaughterIDs = cms.untracked.vint32(443, 211, -211),
